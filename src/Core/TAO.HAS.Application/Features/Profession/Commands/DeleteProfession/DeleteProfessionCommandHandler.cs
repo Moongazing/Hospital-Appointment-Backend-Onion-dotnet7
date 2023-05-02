@@ -29,7 +29,7 @@ namespace TAO.HAS.Application.Features.Profession.Commands.DeleteProfession
         }
         public async Task<DeleteProfessionCommandResponse> Handle(DeleteProfessionCommandRequest request, CancellationToken cancellationToken)
         {
-            await _professionBusinessRules.ProfessionShouldBeExistsWhenDeleted(request.Id);
+            await _professionBusinessRules.ProfessionShouldBeExistsWhenDeletedAndUpdated(request.Id);
 
             var profession = await _professionRepository.GetByIdAsync(request.Id);
 

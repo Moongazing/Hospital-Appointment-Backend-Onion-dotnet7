@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Profession\Dtos\" />
     <Folder Include="Features\Profession\Queries\" />
   </ItemGroup>
 

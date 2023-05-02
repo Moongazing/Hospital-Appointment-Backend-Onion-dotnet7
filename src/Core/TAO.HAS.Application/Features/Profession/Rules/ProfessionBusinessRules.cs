@@ -15,7 +15,7 @@ namespace TAO.HAS.Application.Features.Profession.Rules
         {
             _professionRepository = professionRepository;
         }
-        public async Task ProfessionNameCanNotBeDuplicatedWhenInserted(string professionName)
+        public async Task ProfessionNameCanNotBeDuplicatedWhenInsertedOrUpdated(string professionName)
         {
             var result = await _professionRepository.FindAsync(p => p.Name.ToLower() == professionName.ToLower());
             if (result.Any())
@@ -23,7 +23,7 @@ namespace TAO.HAS.Application.Features.Profession.Rules
                 throw new BusinessException("Profession name already exists.");
             }
         }
-        public async Task ProfessionShouldBeExistsWhenDeleted(Guid id)
+        public async Task ProfessionShouldBeExistsWhenDeletedOrUpdated(Guid id)
         {
             var result = await _professionRepository.GetByIdAsync(id);
             if (result == null)

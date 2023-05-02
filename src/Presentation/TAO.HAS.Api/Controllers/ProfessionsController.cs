@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using TAO.HAS.Application.Features.Profession.Commands.CreateProfession;
 using TAO.HAS.Application.Features.Profession.Commands.DeleteProfession;
+using TAO.HAS.Application.Features.Profession.Commands.UpdateProfession;
 using TAO.HAS.Application.Repositories;
 
 namespace TAO.HAS.Api.Controllers
@@ -33,6 +34,13 @@ namespace TAO.HAS.Api.Controllers
         public async Task<IActionResult> Delete(DeleteProfessionCommandRequest deleteProfessionCommandRequest)
         {
             DeleteProfessionCommandResponse response = await _mediator.Send(deleteProfessionCommandRequest);
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateProfessionCommandRequest updateProfessionCommandRequest)
+        {
+            UpdateProfessionCommandResponse response = await _mediator.Send(updateProfessionCommandRequest);
             return Ok();
         }
 
