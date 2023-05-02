@@ -30,6 +30,7 @@ namespace TAO.HAS.Application.Features.Profession.Commands.CreateProfession
             _professionRepository.Add(profession);
             
             await _professionRepository.SaveChangesAsync();
+
             CreateProfessionCommandResponse response = _mapper.Map<CreateProfessionCommandResponse>(profession);
             return response;
 

@@ -23,5 +23,13 @@ namespace TAO.HAS.Application.Features.Profession.Rules
                 throw new BusinessException("Profession name already exists.");
             }
         }
+        public async Task ProfessionShouldBeExistsWhenDeleted(Guid id)
+        {
+            var result = await _professionRepository.GetByIdAsync(id);
+            if (result == null)
+            {
+                throw new BusinessException("Profession should be exists.");
+            }
+        }
     }
 }
