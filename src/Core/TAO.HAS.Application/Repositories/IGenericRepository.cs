@@ -11,6 +11,7 @@ namespace TAO.HAS.Application.Repositories
     public interface IGenericRepository<TEntity> where TEntity : BaseEntity
     {
         Task<IEnumerable<TEntity>> GetAllAsync(params Expression<Func<TEntity, object>>[] includeProperties);
+        IQueryable<TEntity> GetAll();
         Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> GetByIdAsync(Guid id);
         Task<int> SaveChangesAsync();

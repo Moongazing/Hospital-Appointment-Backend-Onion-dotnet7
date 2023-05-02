@@ -6,6 +6,7 @@ using System.Net;
 using TAO.HAS.Application.Features.Profession.Commands.CreateProfession;
 using TAO.HAS.Application.Features.Profession.Commands.DeleteProfession;
 using TAO.HAS.Application.Features.Profession.Commands.UpdateProfession;
+using TAO.HAS.Application.Features.Profession.Queries.GetAllProfessions;
 using TAO.HAS.Application.Repositories;
 
 namespace TAO.HAS.Api.Controllers
@@ -25,23 +26,29 @@ namespace TAO.HAS.Api.Controllers
             _professionRepository = professionRepository;
         }
         [HttpPost]
-        public async Task<IActionResult> Post(CreateProfessionCommandRequest createProfessionCommandRequest)
+        public async Task<IActionResult> Create(CreateProfessionCommandRequest createProfessionCommandRequest)
         {
             CreateProfessionCommandResponse response = await _mediator.Send(createProfessionCommandRequest);
             return StatusCode((int)HttpStatusCode.Created);
         }
         [HttpDelete]
-        public async Task<IActionResult> Delete(DeleteProfessionCommandRequest deleteProfessionCommandRequest)
+        public async Task<IActionResult> Delete([FromRoute]DeleteProfessionCommandRequest deleteProfessionCommandRequest)
         {
             DeleteProfessionCommandResponse response = await _mediator.Send(deleteProfessionCommandRequest);
-            return Ok();
+            return Ok("Profession deleted.");
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateProfessionCommandRequest updateProfessionCommandRequest)
+        public async Task<IActionResult> Update([FromBody]UpdateProfessionCommandRequest updateProfessionCommandRequest)
         {
             UpdateProfessionCommandResponse response = await _mediator.Send(updateProfessionCommandRequest);
-            return Ok();
+            return Ok("Profession updated.");
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery]GetAllProfessionQueryRequest getAllProfessionQueryRequest)
+        {
+            GetAllProfessionQueryResponse response = await _mediator.Send(getAllProfessionQueryRequest);
+            return Ok(response);
         }
 
     }

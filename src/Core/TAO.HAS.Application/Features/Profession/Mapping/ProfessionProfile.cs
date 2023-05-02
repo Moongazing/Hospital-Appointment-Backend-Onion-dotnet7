@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TAO.HAS.Application.Dtos;
 using TAO.HAS.Application.Features.Profession.Commands.CreateProfession;
 using TAO.HAS.Application.Features.Profession.Commands.DeleteProfession;
 using TAO.HAS.Application.Features.Profession.Commands.UpdateProfession;
@@ -26,6 +27,8 @@ namespace TAO.HAS.Application.Features.Profession.Mapping
 
             CreateMap<UpdateProfessionCommandRequest, Domain.Entities.Profession>().ReverseMap();
             CreateMap<UpdateProfessionCommandResponse, Domain.Entities.Profession>().ReverseMap();
+
+            CreateMap<ProfessionDto, Domain.Entities.Profession>().ReverseMap();
 
         }
     }

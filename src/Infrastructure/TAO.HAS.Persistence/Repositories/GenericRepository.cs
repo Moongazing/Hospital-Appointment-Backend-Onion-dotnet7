@@ -65,5 +65,12 @@ namespace TAO.HAS.Persistence.Repositories
         {
             _set.Remove(entity);
         }
+
+        public IQueryable<TEntity> GetAll()
+        {
+
+            return _context.Set<TEntity>();
+
+        }
     }
 }
