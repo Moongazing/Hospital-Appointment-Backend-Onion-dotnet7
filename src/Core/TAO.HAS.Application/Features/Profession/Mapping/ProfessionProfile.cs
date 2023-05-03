@@ -8,6 +8,7 @@ using TAO.HAS.Application.Dtos;
 using TAO.HAS.Application.Features.Profession.Commands.CreateProfession;
 using TAO.HAS.Application.Features.Profession.Commands.DeleteProfession;
 using TAO.HAS.Application.Features.Profession.Commands.UpdateProfession;
+using TAO.HAS.Application.Features.Profession.Queries.GetProfessionById;
 using TAO.HAS.Domain.Entities;
 
 namespace TAO.HAS.Application.Features.Profession.Mapping
@@ -29,6 +30,8 @@ namespace TAO.HAS.Application.Features.Profession.Mapping
             CreateMap<UpdateProfessionCommandResponse, Domain.Entities.Profession>().ReverseMap();
 
             CreateMap<ProfessionDto, Domain.Entities.Profession>().ReverseMap();
+
+            CreateMap<GetProfessionByIdQueryResponse, Domain.Entities.Profession>().ReverseMap();
 
         }
     }

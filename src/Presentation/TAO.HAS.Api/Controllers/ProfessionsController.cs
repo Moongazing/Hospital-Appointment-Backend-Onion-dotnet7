@@ -7,6 +7,7 @@ using TAO.HAS.Application.Features.Profession.Commands.CreateProfession;
 using TAO.HAS.Application.Features.Profession.Commands.DeleteProfession;
 using TAO.HAS.Application.Features.Profession.Commands.UpdateProfession;
 using TAO.HAS.Application.Features.Profession.Queries.GetAllProfessions;
+using TAO.HAS.Application.Features.Profession.Queries.GetProfessionById;
 using TAO.HAS.Application.Repositories;
 
 namespace TAO.HAS.Api.Controllers
@@ -48,6 +49,12 @@ namespace TAO.HAS.Api.Controllers
         public async Task<IActionResult> GetAll([FromQuery]GetAllProfessionQueryRequest getAllProfessionQueryRequest)
         {
             GetAllProfessionQueryResponse response = await _mediator.Send(getAllProfessionQueryRequest);
+            return Ok(response);
+        }
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetById([FromRoute] GetProfessionByIdQueryRequest getProfessionByIdQueryRequest)
+        {
+            GetProfessionByIdQueryResponse response = await _mediator.Send(getProfessionByIdQueryRequest);
             return Ok(response);
         }
 
