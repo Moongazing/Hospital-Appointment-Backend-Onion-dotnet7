@@ -29,6 +29,7 @@ namespace TAO.HAS.Application.Features.Profession.Queries.GetProfessionByName
         }
         public async Task<GetProfessionByNameQueryResponse> Handle(GetProfessionByNameQueryRequest request, CancellationToken cancellationToken)
         {
+            await _businessRules.ProfessionNameShouldBeExists(request.Name);
 
             var professions = await _professionRepository.FindAsync(p => p.Name.ToLower().Contains(request.Name.ToLower()));
             var professionDtos = _mapper.Map<IEnumerable<ProfessionDto>>(professions);

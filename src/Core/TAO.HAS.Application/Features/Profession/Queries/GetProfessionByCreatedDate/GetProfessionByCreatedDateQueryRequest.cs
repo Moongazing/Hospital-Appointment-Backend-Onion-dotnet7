@@ -1,0 +1,14 @@
+﻿using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TAO.HAS.Application.Features.Profession.Queries.GetProfessionByCreatedDate
+{
+    public class GetProfessionByCreatedDateQueryRequest:IRequest<GetProfessionByCreatedDateQueryResponse>
+    {
+        public DateTime CreatedDate { get; set; }
+    }
+}

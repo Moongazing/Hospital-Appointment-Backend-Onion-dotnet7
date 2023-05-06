@@ -7,6 +7,7 @@ using TAO.HAS.Application.Features.Profession.Commands.CreateProfession;
 using TAO.HAS.Application.Features.Profession.Commands.DeleteProfession;
 using TAO.HAS.Application.Features.Profession.Commands.UpdateProfession;
 using TAO.HAS.Application.Features.Profession.Queries.GetAllProfessions;
+using TAO.HAS.Application.Features.Profession.Queries.GetProfessionByCreatedDate;
 using TAO.HAS.Application.Features.Profession.Queries.GetProfessionById;
 using TAO.HAS.Application.Features.Profession.Queries.GetProfessionByName;
 using TAO.HAS.Application.Repositories;
@@ -64,6 +65,11 @@ namespace TAO.HAS.Api.Controllers
             GetProfessionByNameQueryResponse response = await _mediator.Send(getProfessionByNameQueryRequest);
             return Ok(response);
         }
-
+        [HttpGet("GetByDate/{CreatedDate}")]
+        public async Task<IActionResult> GetByCreatedDate([FromRoute] GetProfessionByCreatedDateQueryRequest getProfessionByCreatedDateQueryRequest)
+        {
+            GetProfessionByCreatedDateQueryResponse response = await _mediator.Send(getProfessionByCreatedDateQueryRequest);
+            return Ok(response);
+        }
     }
 }
