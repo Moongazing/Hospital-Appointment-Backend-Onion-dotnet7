@@ -39,6 +39,15 @@ namespace TAO.HAS.Application.Features.Profession.Rules
                 throw new BusinessException("Profession returns null.");
             }
         }
+        public void GetProfessionByCreatedDateShouldSmallerThanTomorrow(DateTime date)
+        {
+            var today = DateTime.Today.AddDays(1);
+            if (date >= today)
+            {
+                throw new BusinessException("Date should be smaller than tomorrow");
+            }
+        }
+
        
     }
 }

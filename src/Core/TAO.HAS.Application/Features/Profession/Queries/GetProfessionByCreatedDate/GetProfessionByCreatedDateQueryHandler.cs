@@ -29,11 +29,15 @@ namespace TAO.HAS.Application.Features.Profession.Queries.GetProfessionByCreated
         }
         public async Task<GetProfessionByCreatedDateQueryResponse> Handle(GetProfessionByCreatedDateQueryRequest request, CancellationToken cancellationToken)
         {
-            var professions = await _professionRepository.FindAsync(p => p.CreatedDate.ToString("yyyy/MM/dd") == request.CreatedDate.ToString("yyyy/MM/dd"));
+            _professionBusinessRules.GetProfessionByCreatedDateShouldSmallerThanTomorrow(request.CreatedDate);
+            var formattedDate = request.CreatedDate.ToString("yyyy-MM-dd");
+
+            var professions = await _professionRepository.FindAsync(p => p.CreatedDate.ToString().Contains(formattedDate));
             var response = new GetProfessionByCreatedDateQueryResponse();
             response.Professions = _mapper.Map<List<ProfessionDto>>(professions);
             return response;
 
         }
+
     }
 }

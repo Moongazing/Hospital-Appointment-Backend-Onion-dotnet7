@@ -8,6 +8,7 @@ using TAO.HAS.Application.Dtos;
 using TAO.HAS.Application.Features.Profession.Commands.CreateProfession;
 using TAO.HAS.Application.Features.Profession.Commands.DeleteProfession;
 using TAO.HAS.Application.Features.Profession.Commands.UpdateProfession;
+using TAO.HAS.Application.Features.Profession.Queries.GetProfessionByCreatedDate;
 using TAO.HAS.Application.Features.Profession.Queries.GetProfessionById;
 using TAO.HAS.Application.Features.Profession.Queries.GetProfessionByName;
 using TAO.HAS.Domain.Entities;
@@ -18,6 +19,7 @@ namespace TAO.HAS.Application.Features.Profession.Mapping
     {
         public ProfessionProfile()
         {
+            
             CreateMap<CreateProfessionCommandRequest, Domain.Entities.Profession>().ReverseMap();
             CreateMap<CreateProfessionCommandResponse, Domain.Entities.Profession>().ReverseMap();
 
