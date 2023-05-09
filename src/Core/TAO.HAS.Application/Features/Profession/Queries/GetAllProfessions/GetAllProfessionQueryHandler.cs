@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
@@ -38,11 +37,11 @@ namespace TAO.HAS.Application.Features.Profession.Queries.GetAllProfessions
                 .ProjectTo<ProfessionDto>(_mapper.ConfigurationProvider)
                 .ToList();
 
-            return new GetAllProfessionQueryResponse
+            return await Task.FromResult(new GetAllProfessionQueryResponse
             {
                 Professions = professions,
                 TotalProfessionCount = totalProfessionCount
-            };
+            });
 
         }
     }

@@ -31,9 +31,9 @@ namespace TAO.HAS.Application.Features.Profession.Rules
                 throw new BusinessException("Profession should be exists.");
             }
         }
-        public async Task ProfessionNameShouldBeExists(string name)
+        public async Task ProfessionNameShouldBeExists(string professionName)
         {
-            var profession = await _professionRepository.FindAsync(p => p.Name.ToLower().Contains(name.ToLower()));
+            var profession = await _professionRepository.FindAsync(p => p.Name.ToLower().Contains(professionName.ToLower()));
             if (profession == null)
             {
                 throw new BusinessException("Profession returns null.");
