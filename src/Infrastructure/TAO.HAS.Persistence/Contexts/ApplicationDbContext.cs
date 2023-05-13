@@ -14,7 +14,11 @@ namespace TAO.HAS.Persistence.Contexts
     {
         public IConfiguration Configuration { get; }
 
+        #region tables
         public DbSet<Profession> Professions { get; set; }
+        public DbSet<Department> Departments { get; set; }
+
+        #endregion
         public ApplicationDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;

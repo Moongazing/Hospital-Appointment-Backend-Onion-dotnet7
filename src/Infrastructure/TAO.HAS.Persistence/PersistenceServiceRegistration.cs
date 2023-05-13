@@ -21,6 +21,7 @@ namespace TAO.HAS.Persistence
                                                          options.UseSqlServer(
                                                              configuration.GetConnectionString("SqlServer")));
             services.AddScoped<IProfessionRepository, ProfessionRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             return services;
 
         }

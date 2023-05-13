@@ -38,6 +38,7 @@ namespace TAO.HAS.Application.Features.Profession.Commands.CreateProfession
             _logger.LogInformation($"The profession added, name:{request.Name}  description:{request.Description}");
 
             CreateProfessionCommandResponse response = _mapper.Map<CreateProfessionCommandResponse>(profession);
+
             return response;
 
             

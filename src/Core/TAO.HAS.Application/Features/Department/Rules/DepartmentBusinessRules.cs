@@ -17,21 +17,24 @@ namespace TAO.HAS.Application.Features.Department.Rules
             _departmentRepository = departmentRepository;
         }
 
+
         public async Task DepartmentNameCannotDuplicateWhenInsertedOrUpdated(string departmentName)
         {
-            var result = await _departmentRepository.FindAsync(d => d.Name.ToLower() == departmentName.ToLower());
+           var result =  await _departmentRepository.FindAsync(d => d.Name.ToLower() == departmentName.ToLower());
+
             if (result.Any())
             {
-                throw new BusinessException("Name already exists.");
+                throw new BusinessException($"{departmentName} already exists.");
             }
         }
-        public async Task DepartmentShouldBeExistsWhenDeletedOrUpdated(Guid id)
+        public async Task DepartmentShouldBeExistsWhenDeletedOrUpdated(Guid departmentId)
         {
-            var result = await _departmentRepository.GetByIdAsync(id);
+            var result = await _departmentRepository.GetByIdAsync(departmentId);
             if (result == null)
             {
-                throw new BusinessException("Department should be exists.");
+                throw new BusinessException($"{departmentId} not found. Department should be exists.");
             }
+
         }
     }
 }
