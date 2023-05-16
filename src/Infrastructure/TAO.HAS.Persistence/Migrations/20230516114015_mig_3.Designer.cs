@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TAO.HAS.Persistence.Contexts;
 
@@ -11,9 +12,11 @@ using TAO.HAS.Persistence.Contexts;
 namespace TAO.HAS.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230516114015_mig_3")]
+    partial class mig_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,21 +124,21 @@ namespace TAO.HAS.Persistence.Migrations
 
             modelBuilder.Entity("TAO.HAS.Domain.Entities.Doctor", b =>
                 {
-                    b.HasOne("TAO.HAS.Domain.Entities.Department", "Department")
+                    b.HasOne("TAO.HAS.Domain.Entities.Department", "DoctorDepartment")
                         .WithMany()
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TAO.HAS.Domain.Entities.Profession", "Profession")
+                    b.HasOne("TAO.HAS.Domain.Entities.Profession", "DoctorProfession")
                         .WithMany()
                         .HasForeignKey("ProfessionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Department");
+                    b.Navigation("DoctorDepartment");
 
-                    b.Navigation("Profession");
+                    b.Navigation("DoctorProfession");
                 });
 #pragma warning restore 612, 618
         }

@@ -21,7 +21,7 @@ namespace TAO.HAS.Persistence.Repositories
             _set = _context.Set<TEntity>();
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync(params Expression<Func<TEntity, object>>[] includeProperties)
+        public IQueryable<TEntity> GetAllAsync(params Expression<Func<TEntity, object>>[] includeProperties)
         {
             IQueryable<TEntity> query = _set;
 
@@ -33,7 +33,7 @@ namespace TAO.HAS.Persistence.Repositories
                 }
             }
 
-            return await query.ToListAsync();
+            return query;
         }
 
         public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
@@ -69,7 +69,7 @@ namespace TAO.HAS.Persistence.Repositories
         public IQueryable<TEntity> GetAll()
         {
 
-            return _context.Set<TEntity>();
+            return _context.Set<TEntity>().AsQueryable();
 
         }
     }

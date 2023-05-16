@@ -10,9 +10,9 @@ using TAO.HAS.Persistence.Contexts;
 
 namespace TAO.HAS.Persistence.Repositories
 {
-    public class DepartmentRepository : GenericRepository<Department>, IDepartmentRepository
+    public class DoctorRepository : GenericRepository<Doctor>, IDoctorRepository
     {
-        public DepartmentRepository(ApplicationDbContext context) : base(context)
+        public DoctorRepository(ApplicationDbContext context) : base(context)
         {
         }
     }

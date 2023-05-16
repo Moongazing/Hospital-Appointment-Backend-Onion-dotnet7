@@ -17,11 +17,26 @@ namespace TAO.HAS.Persistence.Contexts
         #region tables
         public DbSet<Profession> Professions { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
 
         #endregion
         public ApplicationDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Doctor>()
+                .HasOne(d => d.Profession)
+                .WithMany()
+                .HasForeignKey(d => d.ProfessionId);
+
+            modelBuilder.Entity<Doctor>()
+                .HasOne(d => d.Department)
+                .WithMany()
+                .HasForeignKey(d => d.DepartmentId);
+
+            // ...
         }
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
