@@ -8,7 +8,9 @@ using TAO.HAS.Application.Dtos;
 using TAO.HAS.Application.Features.Department.Commands.CreateDepartment;
 using TAO.HAS.Application.Features.Department.Commands.DeleteDepartment;
 using TAO.HAS.Application.Features.Department.Commands.UpdateDepatment;
-using TAO.HAS.Application.Features.Department.Queries.GetAllDepartments;
+using TAO.HAS.Application.Features.Department.Queries.GetDepartmentById;
+using TAO.HAS.Application.Features.Department.Queries.GetDepartmentByName;
+
 
 namespace TAO.HAS.Application.Features.Department.Mapping
 {
@@ -26,6 +28,11 @@ namespace TAO.HAS.Application.Features.Department.Mapping
             CreateMap<UpdateDepartmentCommandResponse, Domain.Entities.Department>().ReverseMap();
 
             CreateMap<Domain.Entities.Department, DepartmentDto>().ReverseMap();
+
+           CreateMap<GetDepartmentByIdQueryResponse, Domain.Entities.Profession>().ReverseMap();
+
+
+            CreateMap<GetDepartmentByNameQueryResponse, Domain.Entities.Profession>().ReverseMap();
         }
     }
 }

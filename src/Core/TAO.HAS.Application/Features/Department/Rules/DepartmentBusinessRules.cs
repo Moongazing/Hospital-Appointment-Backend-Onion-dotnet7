@@ -36,5 +36,21 @@ namespace TAO.HAS.Application.Features.Department.Rules
             }
 
         }
+        public async Task DepartmentNameShoulBeExists(string departmentName)
+        {
+            var result = await _departmentRepository.FindAsync(d => d.Name.ToLower().Contains(departmentName.ToLower()));
+            if (result== null)
+            {
+                throw new BusinessException($"{departmentName} not found. Department name should be exists.");
+            }
+        }
+        public void GetDepartmentByCreatedDateShouldSmallerThanTomorrow(DateTime date)
+        {
+            var today = DateTime.Today.AddDays(1);
+            if (date >= today)
+            {
+                throw new BusinessException("Date should be smaller than tomorrow");
+            }
+        }
     }
 }

@@ -29,9 +29,6 @@ namespace TAO.HAS.Application.Features.Profession.Mapping
             CreateMap<UpdateProfessionCommandRequest, Domain.Entities.Profession>().ReverseMap();
             CreateMap<UpdateProfessionCommandResponse, Domain.Entities.Profession>().ReverseMap();
 
-            CreateMap<UpdateProfessionCommandRequest, Domain.Entities.Profession>().ReverseMap();
-            CreateMap<UpdateProfessionCommandResponse, Domain.Entities.Profession>().ReverseMap();
-
             CreateMap<ProfessionDto, Domain.Entities.Profession>().ReverseMap();
 
             CreateMap<GetProfessionByIdQueryResponse, Domain.Entities.Profession>().ReverseMap();
