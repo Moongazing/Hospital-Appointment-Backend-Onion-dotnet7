@@ -21,8 +21,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Doctor\Commands\DeleteDoctor\" />
+    <Folder Include="Features\Doctor\Commands\UpdateDoctor\" />
     <Folder Include="Features\Doctor\Mapping\" />
-    <Folder Include="Features\Doctor\Commands\" />
+    <Folder Include="Features\Doctor\Queries\GetDoctorByProfession\" />
+    <Folder Include="Features\Doctor\Queries\GetDoctorByDepartment\" />
+    <Folder Include="Features\Doctor\Queries\GetDoctorById\" />
+    <Folder Include="Features\Doctor\Queries\GetDoctorByName\" />
+    <Folder Include="Features\Doctor\Queries\GetDoctorByNationalIdentity\" />
+    <Folder Include="Features\Doctor\Queries\GetDoctorByPhone\" />
+    <Folder Include="Features\Doctor\Queries\GetDoctorByEmail\" />
+    <Folder Include="Features\Doctor\Queries\GetDoctorByFirstName\" />
+    <Folder Include="Features\Doctor\Queries\GetDoctorByLastName\" />
     <Folder Include="Features\Doctor\Rules\" />
   </ItemGroup>
 
