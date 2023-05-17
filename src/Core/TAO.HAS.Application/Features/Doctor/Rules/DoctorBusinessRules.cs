@@ -20,8 +20,41 @@ namespace TAO.HAS.Application.Features.Doctor.Rules
         {
             /*This rule for the Turkey Identity Algorithm*/
 
+            int oddNumbersTotal = 0;
+            int evenNumbersTotal = 0;
+            int total10 = 0;
 
-            return false;
+            if (nationalIdentity.Length != 11 || nationalIdentity.Substring(0, 1) == "0" || nationalIdentity.All(char.IsDigit) == false)
+            {
+                return false;
+            }
+            for (int i = 0; i < nationalIdentity.Length; i++)
+            {
+                Convert.ToInt32(nationalIdentity[i].ToString());
+                if (nationalIdentity[i] != 10)
+                {
+                    total10 += nationalIdentity[i];
+                }
+                if (nationalIdentity[i] % 2 != 0)
+                {
+                    oddNumbersTotal += nationalIdentity[i];
+                }
+                else
+                {
+                    evenNumbersTotal += nationalIdentity[i];
+                }
+            }
+
+            if ((7 * oddNumbersTotal - evenNumbersTotal) % 10 != nationalIdentity[10])
+            {
+                return false;
+            }
+            if (total10 % 10 != nationalIdentity[10])
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public async Task NationalIdentityCannotDuplicatedWhenInsertedOrUpdated(string nationalIdentity)
@@ -53,11 +86,11 @@ namespace TAO.HAS.Application.Features.Doctor.Rules
         public void DateOfBirthShouldBeBiggerToday(DateTime birthDate)
         {
             var today = DateTime.Now.ToString("yyyy-MM-dd");
-            if (birthDate < Convert.ToDateTime(today));
+            if (birthDate < Convert.ToDateTime(today)) ;
             {
                 throw new BusinessException("Date of birth can't smaller than today.");
             }
-            
+
         }
         public void DoctorAgeShoulBeBiggerThanTwentyTwo(DateTime birthDate)
         {
@@ -67,7 +100,7 @@ namespace TAO.HAS.Application.Features.Doctor.Rules
             if (age <= 22)
             {
                 throw new BusinessException("Doctor age should be bigger than twenty two.");
-             }
+            }
         }
 
         public async Task DoctorShouldBeExistsWhenDeletedOrUpdated(Guid doctorId)
