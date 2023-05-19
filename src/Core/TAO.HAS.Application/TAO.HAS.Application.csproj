@@ -23,7 +23,6 @@
   <ItemGroup>
     <Folder Include="Features\Doctor\Commands\DeleteDoctor\" />
     <Folder Include="Features\Doctor\Commands\UpdateDoctor\" />
-    <Folder Include="Features\Doctor\Mapping\" />
     <Folder Include="Features\Doctor\Queries\GetDoctorByProfession\" />
     <Folder Include="Features\Doctor\Queries\GetDoctorByDepartment\" />
     <Folder Include="Features\Doctor\Queries\GetDoctorById\" />

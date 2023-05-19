@@ -45,11 +45,14 @@ namespace TAO.HAS.Application.Features.Doctor.Queries.GetAllDoctors
             var doctorDtos = _mapper.Map<List<DoctorDto>>(doctors)
                 .Select(d => new DoctorDto
                 {
-                    DoctorDepartment = d.DoctorDepartment,
-                    DoctorProfession = d.DoctorProfession,
+                   
+                    Department = d.Department,
+                    Profession =d.Profession,
+                    DateOfBirth = d.DateOfBirth,
                     FirstName = d.FirstName,
                     LastName = d.LastName,
                     NationalIdentity = d.NationalIdentity,
+                    Phone = d.Phone,
                     Email = d.Email
                 })
                 .ToList();

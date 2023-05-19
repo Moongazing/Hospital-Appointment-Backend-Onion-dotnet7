@@ -13,6 +13,9 @@ namespace TAO.HAS.Application.Features.Doctor.Commands.CreateDoctor
         public string NationalIdentity { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public Guid ProfessionId { get; set; }
         public Guid DepartmentId { get; set; }
     }

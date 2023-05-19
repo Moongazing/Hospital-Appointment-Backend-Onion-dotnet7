@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using TAO.HAS.Application.Features.Department.Rules;
+using TAO.HAS.Application.Features.Doctor.Rules;
 using TAO.HAS.Application.Features.Profession.Rules;
 
 namespace TAO.HAS.Application
@@ -20,6 +21,7 @@ namespace TAO.HAS.Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<ProfessionBusinessRules>();
             services.AddScoped<DepartmentBusinessRules>();
+            services.AddScoped<DoctorBusinessRules>();
             return services;
 
         }

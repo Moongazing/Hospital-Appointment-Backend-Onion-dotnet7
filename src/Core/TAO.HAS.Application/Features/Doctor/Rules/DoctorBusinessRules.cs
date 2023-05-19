@@ -109,7 +109,7 @@ namespace TAO.HAS.Application.Features.Doctor.Rules
 
             if (result == null)
             {
-                throw new BusinessException($"Doctor cannot found. ");
+                throw new BusinessException($"Doctor cannot found.");
             }
         }
 

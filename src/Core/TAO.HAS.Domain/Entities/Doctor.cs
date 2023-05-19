@@ -14,6 +14,7 @@ namespace TAO.HAS.Domain.Entities
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public Guid ProfessionId { get; set; }
         public Profession Profession { get; set; }
         public Guid DepartmentId { get; set; }

@@ -13,7 +13,10 @@ namespace TAO.HAS.Application.Dtos
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public Profession DoctorProfession { get; set; }
-        public Department DoctorDepartment { get; set; }
+        public string Phone { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public ProfessionDto Profession { get; set; }
+        
+        public DepartmentDto Department { get; set; }
     }
 }
