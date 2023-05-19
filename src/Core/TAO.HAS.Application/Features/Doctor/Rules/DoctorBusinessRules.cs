@@ -86,7 +86,7 @@ namespace TAO.HAS.Application.Features.Doctor.Rules
         public void DateOfBirthShouldBeBiggerToday(DateTime birthDate)
         {
             var today = DateTime.Now.ToString("yyyy-MM-dd");
-            if (birthDate < Convert.ToDateTime(today)) ;
+            if (birthDate < Convert.ToDateTime(today))
             {
                 throw new BusinessException("Date of birth can't smaller than today.");
             }
